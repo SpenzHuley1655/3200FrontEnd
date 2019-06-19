@@ -1,10 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Button, InputGroup, FormControl, Col, Container, Form } from 'react-bootstrap';
 
-export default class CreateReview extends React.Component {
+export default class EditReview extends React.Component {
 
   constructor(props) {
     super(props);
@@ -14,14 +13,13 @@ export default class CreateReview extends React.Component {
       movie_id: '',
       reviewer_id: '',
       rating: '',
-      date_posted: '',
       description: ''
     }
   }
 
   database() {
     fetch('http://127.0.0.1:5000/api/test', {
-      method: 'post',
+      method: 'put',
         headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
@@ -41,7 +39,7 @@ export default class CreateReview extends React.Component {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h3> New Review </h3>
+        <h3> Edit Review </h3>
         <hr/>
         <Container>
           <Col md={{ span: 6, offset: 3 }}>
