@@ -14,13 +14,12 @@ export default class CreateReview extends React.Component {
       movie_id: '',
       reviewer_id: '',
       rating: '',
-      date_posted: '',
       description: ''
     }
   }
 
   database() {
-    fetch('http://127.0.0.1:5000/api/test', {
+    fetch('http://127.0.0.1:5000/reviews', {
       method: 'post',
         headers: {
         'Accept': 'application/json, text/plain, */*',
