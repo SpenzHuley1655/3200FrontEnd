@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CreateReview from './components/CreateReview';
 import EditReview from './EditReview';
 import NavBar from './components/NavBar';
+import ReviewList from './ReviewList';
 
 export default class AppRouter extends React.Component {
 	render() {
@@ -11,7 +12,7 @@ export default class AppRouter extends React.Component {
 			<Router>
 				<NavBar/>
 				<Route path="/create" component={CreateReview} />
-				<Route path="/edit" component={EditReview} />
+				<Route path="/read" component={ReviewList} />
 			</Router>
 
 			<link
