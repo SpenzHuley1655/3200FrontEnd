@@ -13,6 +13,7 @@ export default class AppRouter extends React.Component {
 				<NavBar/>
 				<Route path="/create" component={CreateReview} />
 				<Route path="/read" component={ReviewList} />
+				<Route path="/edit/:id" component={EditReview} />
 			</Router>
 
 			<link

@@ -1,8 +1,6 @@
 import React from 'react';
-import '../App.css';
-import {Table, Button, ButtonToolbar} from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import './App.css';
+import {Table, Button} from 'react-bootstrap';
 
 export default class ReviewList extends React.Component {
 	constructor(props) {
@@ -16,7 +14,7 @@ export default class ReviewList extends React.Component {
   	componentWillMount() {
   		fetch('http://127.0.0.1:5000/reviews', {
   			method: 'get',
-  			headers : {
+  			headers : { 
 		        'Content-Type': 'application/json',
 		        'Accept': 'application/json'
 		    }
@@ -29,16 +27,12 @@ export default class ReviewList extends React.Component {
   	deleteReview(id) {
   		fetch('http://127.0.0.1:5000/reviews/delete/' + id, {
   			method: 'DELETE',
-  			headers : {
+  			headers : { 
 		        'Content-Type': 'application/json',
 		        'Accept': 'application/json'
 		    }
   		})
-		.then(res => res.json())
-		//.then(res => console.log(res))
-		.then(res => this.setState({reviews: res.data}))
   	}
-
 
   	render() {
   		return (
@@ -73,8 +67,7 @@ export default class ReviewList extends React.Component {
 	      								{r.description}
 	      							</td>
 	      							<td>
-	      								<Link className="btn btn-warning" to={"/edit/" + r.review_id}>Edit</Link>
-	      								<Button variant="danger" onClick={() => this.deleteReview(r.review_id)}>Delete</Button>	
+	      								<Button variant="danger" onClick={() => this.deleteReview(r.review_id)}>Delete</Button>
 	      							</td>
 	      						</tr>))}
 	      				</tbody>

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { Button, InputGroup, FormControl, Col, Container, Form } from 'react-bootstrap';
+import {Redirect} from "react-router-dom";
 
 export default class EditReview extends React.Component {
 
@@ -9,6 +10,7 @@ export default class EditReview extends React.Component {
     this.database = this.database.bind(this);
     this.changeReview = this.changeReview.bind(this);
     this.state = {
+      review_id: this.props.match.params.id,
       movie_id: '',
       reviewer_id: '',
       rating: '',
@@ -16,17 +18,22 @@ export default class EditReview extends React.Component {
     }
   }
 
+  componentWillMount() {
+    fetch('http://127.0.0.1:5000/reviews/' + this.state.review_id)
+    .then((res) => res.json())
+    .then((res) => this.setState(res.data[0]))
+    .then(() => console.log(this.state));
+  }
+
   database() {
-    fetch('http://127.0.0.1:5000/api/test', {
+    fetch('http://127.0.0.1:5000/reviews/' + this.state.review_id, {
       method: 'put',
         headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(this.state)});
-    //fetch("http://127.0.0.1:5000/api/get_chars")
-    //.then(res => res.json());
-    console.log(this.state)
+      body: JSON.stringify(this.state)})
+      .then(() => this.props.history.push('/read'));
   }
 
   changeReview(fieldname, newvalue) {
@@ -36,7 +43,6 @@ export default class EditReview extends React.Component {
   render() {
     return (
     <div className="App">
-      <header className="App-header">
         <h3> Edit Review </h3>
         <hr/>
         <Container>
@@ -80,24 +86,18 @@ export default class EditReview extends React.Component {
                 <InputGroup.Text>Review Body</InputGroup.Text>
               </InputGroup.Prepend>
               <FormControl
+                type="text"
                 defaultValue={this.state.description}
                 onChange={(e) => this.changeReview("description", e.target.value)}
-                as="textarea"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
-              />
+              >
+              </FormControl>
             </InputGroup>
           </Form>
         </Col>
-        <Button onClick={this.database} type="submit">Create Review</Button>
+        <Button onClick={this.database} type="submit">Update Review</Button>
         </Container>
-      </header>
-      <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossOrigin="anonymous"
-      />
     </div>
     );
   }
