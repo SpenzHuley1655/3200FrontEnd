@@ -13,8 +13,7 @@ export default class Navbar extends React.Component {
               <ul className="nav navbar-collapse">
                 <li className="nav-item mt-2 ml-auto">
                   <h5>
-                    <Link to="/create/">Create, </Link>
-                    <Link to="/edit"> Edit,  </Link>
+                    <Link to="/create/">Create </Link>
                     or
                     <Link to="/read/"> View  </Link>
                     reviews

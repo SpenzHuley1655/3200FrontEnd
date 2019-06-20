@@ -67,7 +67,7 @@ export default class ReviewList extends React.Component {
 	      								{r.rating}
 	      							</td>
 	      							<td>
-	      								{r.date_posted}
+	      								{new Date(r.date_posted).toDateString()}
 	      							</td>
 	      							<td>
 	      								{r.description}

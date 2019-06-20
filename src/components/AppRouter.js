@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import CreateReview from './CreateReview';
 import EditReview from './EditReview';
 import NavBar from './NavBar';
