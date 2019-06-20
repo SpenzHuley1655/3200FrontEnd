@@ -22,10 +22,10 @@ export default class CreateReview extends React.Component {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(this.state)});
+      body: JSON.stringify(this.state)})
+    .then(() => this.props.history.push('/read'));
     //fetch("http://127.0.0.1:5000/api/get_chars")
     //.then(res => res.json());
-    console.log(this.state)
   }
 
   changeReview(fieldname, newvalue) {
