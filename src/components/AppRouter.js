@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import CreateReview from './components/CreateReview';
-import EditReview from './components/EditReview';
-import NavBar from './components/NavBar';
-import ReviewList from './components/ReviewList';
+import CreateReview from './CreateReview';
+import EditReview from './EditReview';
+import NavBar from './NavBar';
+import ReviewList from './ReviewList';
 
 export default class AppRouter extends React.Component {
 	render() {

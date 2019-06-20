@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import {Table, Button} from 'react-bootstrap';
 
 export default class ReviewList extends React.Component {
@@ -14,7 +14,7 @@ export default class ReviewList extends React.Component {
   	componentWillMount() {
   		fetch('http://127.0.0.1:5000/reviews', {
   			method: 'get',
-  			headers : { 
+  			headers : {
 		        'Content-Type': 'application/json',
 		        'Accept': 'application/json'
 		    }
@@ -27,11 +27,14 @@ export default class ReviewList extends React.Component {
   	deleteReview(id) {
   		fetch('http://127.0.0.1:5000/reviews/delete/' + id, {
   			method: 'DELETE',
-  			headers : { 
+  			headers : {
 		        'Content-Type': 'application/json',
 		        'Accept': 'application/json'
 		    }
   		})
+		.then(res => res.json())
+		//.then(res => console.log(res))
+		.then(res => this.setState({reviews: res.data}))
   	}
 
   	render() {

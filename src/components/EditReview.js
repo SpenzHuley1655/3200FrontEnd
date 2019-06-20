@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 import { Button, InputGroup, FormControl, Col, Container, Form } from 'react-bootstrap';
 
 export default class EditReview extends React.Component {
@@ -38,7 +37,6 @@ export default class EditReview extends React.Component {
     return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <h3> Edit Review </h3>
         <hr/>
         <Container>
@@ -104,4 +102,3 @@ export default class EditReview extends React.Component {
     );
   }
 }
-
