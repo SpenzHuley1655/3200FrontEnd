@@ -1,8 +1,7 @@
 import React from 'react';
 import '../App.css';
-import {Table, Button, ButtonToolbar} from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import {Table, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 
 export default class ReviewList extends React.Component {
 	constructor(props) {
@@ -23,7 +22,6 @@ export default class ReviewList extends React.Component {
   		})
   		.then((res) => res.json())
   		.then((res) => this.setState({reviews: res.data}))
-  		.then((res) => console.log(this.state));
   	}
 
   	deleteReview(id) {
@@ -35,10 +33,8 @@ export default class ReviewList extends React.Component {
 		    }
   		})
 		.then(res => res.json())
-		//.then(res => console.log(res))
 		.then(res => this.setState({reviews: res.data}))
   	}
-
 
   	render() {
   		return (
@@ -47,7 +43,9 @@ export default class ReviewList extends React.Component {
 	      				<thead>
 	      					<tr>
 	      						<th> Reviewer ID </th>
+								<th> Reviewer Name </th>
 	      						<th> Movie ID </th>
+								<th> Movie Name </th>
 	      						<th> Rating </th>
 	      						<th> Date Posted </th>
 	      						<th> Description </th>
@@ -60,21 +58,27 @@ export default class ReviewList extends React.Component {
 	      							<td>
 	      								{r.reviewer_id}
 	      							</td>
-	      							<td>
+									<td>
+										{r.name}
+									</td>
+									<td>
 	      								{r.movie_id}
 	      							</td>
+									<td>
+										{r.title}
+									</td>
 	      							<td>
 	      								{r.rating}
 	      							</td>
 	      							<td>
-	      								{new Date(r.date_posted).toDateString()}
+	      								{r.date_posted}
 	      							</td>
 	      							<td>
 	      								{r.description}
 	      							</td>
 	      							<td>
-	      								<Link className="btn btn-warning" to={"/edit/" + r.review_id}>Edit</Link>
-	      								<Button variant="danger" onClick={() => this.deleteReview(r.review_id)}>Delete</Button>	
+										<Link className="btn btn-warning" to={"/edit/" + r.review_id}>Edit</Link>
+	      								<Button variant="danger" onClick={() => this.deleteReview(r.review_id)}>Delete</Button>
 	      							</td>
 	      						</tr>))}
 	      				</tbody>
