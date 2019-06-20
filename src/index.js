@@ -5,7 +5,11 @@ import App from './App';
 import AppRouter from './AppRouter';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<AppRouter />, document.getElementById('root'));
+ReactDOM.render(
+    <div className="container-fluid">
+        <AppRouter/>
+    </div>,
+    document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

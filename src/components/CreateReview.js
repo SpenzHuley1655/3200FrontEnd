@@ -1,7 +1,4 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from 'react'
 import { Button, InputGroup, FormControl, Col, Container, Form } from 'react-bootstrap';
 
 export default class CreateReview extends React.Component {
@@ -38,8 +35,6 @@ export default class CreateReview extends React.Component {
   render() {
     return (
     <div className="App">
-        <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <h3> New Review </h3>
         <hr/>
         <Container>
@@ -94,7 +89,7 @@ export default class CreateReview extends React.Component {
         </Col>
         <Button onClick={this.database} type="submit">Create Review</Button>
         </Container>
-      </header>
+      
     </div>
     );
   }
