@@ -27,7 +27,7 @@ export default class MoviePage extends React.Component {
     }
 
     initializeActors() {
-        fetch('http://127.0.0.1:5000/movies/' + this.state.movie_id + '/actors')
+        fetch('http://127.0.0.1:5000/movies/' + this.state.movie_id + '/actors/')
         .then((res) => res.json())
         .then((res) => this.setState({actors: res.data}))
     }
@@ -57,7 +57,7 @@ export default class MoviePage extends React.Component {
                                 <h2>{a.name}</h2>
                                 </th>
                                 <td>
-                                    <p>{a.biography}</p>
+                                <p>{a.biography}</p>
                                 </td>
                             </tr>))}
                         </tbody>
