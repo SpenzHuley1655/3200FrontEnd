@@ -65,7 +65,7 @@ export default class ReviewList extends React.Component {
 	      								{r.movie_id}
 	      							</td>
 									<td>
-										{r.title}
+										<a href={"/movies/" + r.movie_id}>{r.title}</a>
 									</td>
 	      							<td>
 	      								{r.rating}
