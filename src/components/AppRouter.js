@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import CreateReview from './CreateReview';
 import EditReview from './EditReview';
+import MoviePage from './MoviePage';
 import NavBar from './NavBar';
 import ReviewList from './ReviewList';
 
@@ -14,6 +15,7 @@ export default class AppRouter extends React.Component {
 				<Route path="/create" component={CreateReview} />
 				<Route path="/read" component={ReviewList} />
 				<Route path="/edit/:id" component={EditReview} />
+				<Route path="/movies/:id" component={MoviePage} />
 			</Router>
 
 			<link
