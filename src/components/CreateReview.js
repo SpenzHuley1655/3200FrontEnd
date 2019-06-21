@@ -23,9 +23,6 @@ export default class CreateReview extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(this.state)})
-    .then(() => this.props.history.push('/read'));
-    //fetch("http://127.0.0.1:5000/api/get_chars")
-    //.then(res => res.json());
   }
 
   changeReview(fieldname, newvalue) {
@@ -89,7 +86,7 @@ export default class CreateReview extends React.Component {
         </Col>
         <Button onClick={this.database} type="submit">Create Review</Button>
         </Container>
-      
+
     </div>
     );
   }
